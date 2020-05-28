@@ -1,0 +1,13 @@
+<div class="jumbotron">
+  <h1> Divisions </h1>
+</div>
+<% if @divisions.any? %>
+<ul>
+<% @divisions.each do |division| %>
+<li><%= link_to division.name, division_path(division) %></li>
+<% end %>
+</ul>
+<% else %>
+<p>There are no divisions yet!</p>
+<% end %>
+<p> <%= link_to "Create a new Division", new_division_path %> </p>

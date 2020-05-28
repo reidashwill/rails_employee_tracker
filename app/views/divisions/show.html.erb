@@ -1,0 +1,22 @@
+<div class="jumbotron">
+  <h3> <%= @division.name %> </h3>
+</div>
+
+<% if @division.employees.any? %>
+  <h4>Current Employees in this Division</h4>
+
+  <% @division.employees.each do |employee| %>
+    <ul>
+      <li>
+        <%= link_to employee.name, division_employee_path(@division, employee) %>
+      </li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>No employees assigned to this division</p>
+<% end %>
+
+<p><%= link_to "Assign Employee", new_division_employee_path(@division) %></p>
+
+<p> <%= link_to "edit this division", edit_division_path(@division) %> </p>
+<p> <%= link_to "Delete this division", division_path(@division),  :data => {:confirm => "Are you sure?", :method => "delete"} %> </p>
