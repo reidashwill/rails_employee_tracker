@@ -1,0 +1,11 @@
+<%= render "layouts/errors", :object => @employee %>
+
+<%= form_for @employee do |f| %>
+<% if params[:division_id] %>
+<p>if statement test</p>
+<input type="hidden" id="division_id" name="employee[division_id]" value='<%="#{params[:division_id]}"%>'>
+<% end %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.submit %>
+<% end %>

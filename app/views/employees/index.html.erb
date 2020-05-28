@@ -1,0 +1,12 @@
+<div class="jumbotron">
+  <h1> Employees </h1>
+</div>
+<% if @employees.any? %>
+<ul>
+<% @employees.each do |employee| %>
+<li> <%= link_to employee.name, employee_path(employee) %> </li>
+<% end %>
+</ul>
+<% else %>
+<p>There are no employees yet!</p>
+<% end %>
